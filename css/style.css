@@ -17,9 +17,10 @@ img{
 }
 .main-info{
     background:rgb(30, 33, 58);
-    padding: 1.1rem .9rem 6.5rem .9rem;
+    padding: 1.1rem .9rem 2.5rem .9rem;
     text-align: center;
     position: relative;
+    
 }
 
 .search-location{
@@ -73,13 +74,12 @@ form{
     z-index: 1;
     background-color:#1E213A;
     padding: 4rem .9rem 6.5rem .9rem;
-    display: none;
-    
+    display: none;    
 }
 .show-form form{
     display: flex;
 }
-.show-form  #toggler{
+.show-form  #toggle{
     position:absolute;
     z-index: 2;
     top: 1rem;
@@ -101,15 +101,20 @@ form input, form button{
     margin-right: .5rem;
     
 }
-
+form input::placeholder{
+    color: inherit;
+    font-family: inherit;
+}
 form button{
     width: 30%;
     background: #3C47E9;
 }
 .main-time-img{
-    margin: 4.75rem -.9rem 2.5rem -.9rem;
+    margin: 2.75rem -.9rem 0 -.9rem;
     position: relative;
     padding: 2rem 0;
+ 
+   
 }
 .main-time-img::after{
     content: '';
@@ -126,8 +131,8 @@ form button{
 }
 .main-time-img .img{
     width: 9.4rem;
-    margin: auto;
-    transform: translateX(-2rem);
+    margin: 0 auto;
+    transform: translateX(-1rem);
 }
 .main-temperature {
     
@@ -156,7 +161,7 @@ form button{
     font-size: 18px;
     line-height: 21px;
     color: #88869D;
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 .today span{

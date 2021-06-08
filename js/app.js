@@ -1,4 +1,4 @@
-const toogle = document.querySelector('#toggler');
+const toogle = document.querySelector('#toggle');
 let b = true;
 toogle.addEventListener('click', (e)=>{
    e.currentTarget.parentElement.classList.toggle('show-form');
