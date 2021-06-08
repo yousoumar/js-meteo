@@ -227,14 +227,23 @@ form button{
         gap: 5%;
         width: 100%;
         
+        
     }
-   
+    .secondary-info{
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     .weekend {
         display: grid;
         grid-template: repeat(1, 11rem ) / repeat(5,  7.5rem);
         gap: 1.6rem;
-        margin: 3.25rem 0;
-        justify-content: flex-start;
+        margin:  0;
+        
+        
+        
     }
 
     .hightlights{
