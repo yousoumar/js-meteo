@@ -7,11 +7,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://yousoumar.github.io/js-meteo/">
+    <a href="https://yousoumar.github.io/js-weather-app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/yousoumar/js-meteo">
+    <a href="https://github.com/yousoumar/js-weather-app">
       Solution
     </a>
     <span> | </span>
