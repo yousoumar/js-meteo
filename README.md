@@ -19,4 +19,7 @@
       Challenge
     </a>
   </h3>
+  <div>
+    <img src = "images/screenshot.png"></img>
+  </div>
 </div>
