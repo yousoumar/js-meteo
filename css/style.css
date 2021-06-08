@@ -110,7 +110,7 @@ form button{
     background: #3C47E9;
 }
 .main-time-img{
-    margin: 2.75rem -.9rem 0 -.9rem;
+    margin: 2.75rem -.9rem -1rem -.9rem;
     position: relative;
     padding: 2rem 0;
     
@@ -227,12 +227,14 @@ form button{
         justify-content: center;
         gap: 5%;
         width: 100%;
-        
-        
+    }
+    .main-time-img{
+        margin: 2.75rem -.9rem -0.5rem -.9rem;
+     
     }
     .main-temperature-description div:first-child{
     
-        margin: 3.4rem 0;
+        margin: 2rem 0;
     }
     .secondary-info{
         display: flex;
