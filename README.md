@@ -1,5 +1,5 @@
 
-<h1 align="center">JS Weather App</h1>
+<h1 align="center">Weather App</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>. I am still working on it.
