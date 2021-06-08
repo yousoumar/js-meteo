@@ -10,11 +10,33 @@ body{
     min-height: 100vh;
     color: #E7E7EB;
     font-family: 'Raleway', sans-serif;
+    position: relative;
     
 }
 img{
     display: block;
     width: 100%;
+}
+.info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 14, 29, .95);
+    z-index: 1;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.info button{
+    margin: 1rem 0;
+    padding: 0 .6rem ;
+    background: #6E707A;
 }
 .main-info{
     background:rgb(30, 33, 58);
@@ -51,7 +73,7 @@ img{
    
 }
 
-button{
+button, input{
     display: block;
     width: 100%;
     height: 100%;
@@ -61,11 +83,13 @@ button{
     font-size: inherit;
     color: inherit;
     padding: .9rem 1.1rem;
-    cursor: pointer;
+  
     
 }
 
-
+button{
+    cursor: pointer;
+}
 form{
     position: absolute;
     top: 0;
@@ -77,13 +101,14 @@ form{
     padding: 4rem .9rem 6.5rem .9rem;
     display: none;    
    
+   
 }
 .show-form form{
     display: flex;
     justify-content: space-between;
 }
 
-.show-form  #toggle{
+.show-form  #toggle-form{
     position:absolute;
     z-index: 2;
     top: 1rem;
@@ -96,17 +121,12 @@ form input, form button{
     width: 66%;
     height:max-content;
     background: rgba(110, 112, 122, 0.3);
-    border: none;
-    outline: none;
-    font-size: inherit;
-    color: inherit;
-    padding: .9rem 1.1rem;
-    cursor: pointer;
+    
     margin-right: .5rem;
     
 }
 form input::placeholder{
-    color: inherit;
+    color: #A09FB1;
     font-family: inherit;
 }
 form button{
@@ -207,6 +227,7 @@ form button{
     font-weight: bold;
     font-size: 1.5rem;
     padding: 1.75rem 0;
+    margin-left:1rem ;
 }
 
 
@@ -259,9 +280,11 @@ form button{
 
     .hightlights{
         margin: 0 ;
-        
-        
        
+    }
+    .hightlights h1{
+       
+        margin-left:0;
     }
     .hightlights .content{
         display: grid;
