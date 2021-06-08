@@ -68,7 +68,8 @@ const today = document.querySelector('.today');
 const options = { weekday: 'long', month: 'long', day: 'numeric' };
 today.innerText = new Date().toLocaleDateString('fr-FR', options);
 const timeImg = document.querySelector('.main-time-img img');
-console.log(timeImg)
+const loader = document.querySelector('.loader');
+console.log(loader)
 
 
 function callAPI(lat, long){
@@ -89,6 +90,12 @@ function callAPI(lat, long){
          city.innerText = timezone.slice(timezone.indexOf('/')+1)
          description.innerText = data.current.weather[0].description;
          timeImg.src = `images/${data.current.weather[0].main}.png`; 
+         
+         setTimeout(()=>{
+          loader.style.display="none";
+         }, 1000)
+         
+
 
      })
      .catch(() => {
