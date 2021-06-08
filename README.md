@@ -20,6 +20,7 @@
     </a>
   </h3>
   <div>
-    <img src = "images/screenshot.png"></img>
+    <a href = "https://yousoumar.github.io/js-weather-app/"><img src = "images/screenshot.png"></img></a>
+   
   </div>
 </div>
