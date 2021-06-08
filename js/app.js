@@ -91,9 +91,7 @@ function callAPI(lat, long){
          description.innerText = data.current.weather[0].description;
          timeImg.src = `images/${data.current.weather[0].main}.png`; 
          
-         setTimeout(()=>{
-          loader.style.display="none";
-         }, 1000)
+       
          
 
 
@@ -103,4 +101,9 @@ function callAPI(lat, long){
           
 
      });
+
+    
 }
+setTimeout(()=>{
+     loader.style.display="none";
+    }, 1000)
