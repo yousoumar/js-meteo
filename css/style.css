@@ -113,6 +113,7 @@ form button{
     margin: 2.75rem -.9rem 0 -.9rem;
     position: relative;
     padding: 2rem 0;
+    
  
    
 }
@@ -137,13 +138,14 @@ form button{
 .main-temperature {
     
     font-size: 3rem;
+    padding: 0 0 1.4rem 0;
+
         
     
 }
 .main-temperature span{
     font-weight: 500;
     font-size: 9rem;
-    line-height: 1.6;
     color: #E7E7EB;
 }
 
