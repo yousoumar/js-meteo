@@ -2,6 +2,7 @@
 const locationButton = document.querySelector('.location');
 const toogle = document.querySelector('#toggle-form');
 const city = document.querySelector('.city span:last-child');
+let fulfilledCity= false;
 const description = document.querySelector('.main-temperature-description div:first-child');
 const temperature = document.querySelector('.main-temperature span');
 const timeImg = document.querySelector('.main-time-img img');
@@ -43,7 +44,7 @@ if (lat && long){
 
 
 locationButton.addEventListener('click', ()=>{
-    
+     fulfilledCity = false;
      if (!(lat && long)){
           infoHandle(`<p>Veuillez autoriser la géolocalisation lorsque votre navigateur vous la demande.<p>`);
           setTimeout(()=>{
@@ -84,7 +85,7 @@ myForm.addEventListener('submit', (e)=>{
           toogle.innerText ="X"
           b=false;
      }else{
-          toogle.innerText ="Chercher une capitale";
+          toogle.innerText ="Chercher une ville";
           b=true;
      }
     
@@ -115,8 +116,10 @@ function callApiLatLong(lat, long){
      .then(data =>{
           
           temperature.innerHTML = Math.trunc(data.current.temp);
-          let timezone = data.timezone;
-          city.innerText = timezone.slice(timezone.indexOf('/')+1)
+          if(!fulfilledCity){
+               city.innerText = data.timezone;
+          }
+        
           description.innerText = data.current.weather[0].description;
           timeImg.src = `images/${data.current.weather[0].icon}.svg`; 
          
@@ -165,8 +168,9 @@ function callApiLatLong(lat, long){
 
     
 }
-function callApiCity(city){
-     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`)
+function callApiCity(searchedCity){
+     fulfilledCity = true;
+     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${APIKEY}`)
      .then(response=>{
          
           if (response.ok){
@@ -180,6 +184,7 @@ function callApiCity(city){
      .then(data =>{
           let lat = data.coord.lat;
           let long = data.coord.lon;
+          city.innerText = data.name;  
           callApiLatLong(lat, long);
           
 

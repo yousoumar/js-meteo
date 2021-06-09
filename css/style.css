@@ -65,7 +65,7 @@ img{
     padding: 1.1rem .9rem 2.5rem .9rem;
     text-align: center;
     position: relative;
-    min-height: 747px;
+  
     
 }
 
@@ -147,7 +147,6 @@ form input, form button{
     width: 70%;
     height:max-content;
     background: rgba(110, 112, 122, 0.3);
-    border: 1px solid;
     margin-right: .5rem;
     
 }
@@ -161,7 +160,7 @@ form button{
     margin-right:0 ;
 }
 .main-time-img{
-    margin: 2.75rem -.9rem -4rem -.9rem;
+    margin: 1rem -.9rem -5rem -.9rem;
     position: relative;
     padding: 6rem 0;
     
@@ -184,28 +183,29 @@ form button{
 .main-time-img .img{
     width: 9.4rem;
     margin: 0 auto;
-    transform: scale(2);
+    transform: scale(1.5);
 }
 .main-temperature {
     
-    font-size: 3rem;
-    padding: 0 0 1.4rem 0;
+    font-size: 2rem;
+
 
         
     
 }
 .main-temperature span{
     font-weight: 500;
-    font-size: 9rem;
+    font-size: 6rem;
     color: #E7E7EB;
 }
 
 .main-temperature-description{
    
     font-weight: 600;
-    font-size: 2.25rem;
-    line-height: 1.4;
+    font-size: 1.5rem;
     color: #A09FB1;
+    margin: 2rem 0;
+   
 }
 
 .today{
@@ -265,9 +265,9 @@ form button{
 
 .hightlights .content > div{
     width: calc(100% - 1.75rem);
-    height:  13.75rem;
+    min-height: 14rem;
     margin: 1.6rem auto;
-    padding: .5rem;
+    padding: 1.5rem .5rem .5rem .5rem;
     background: #1E213A;
     display: flex;
     flex-direction: column;
@@ -285,7 +285,7 @@ form button{
 .hightlights .number span{
     font-weight: bold;
     font-size: 64px;
-    line-height: 75px;   
+  
 }
 .hightlights .rang-container{
     width: 229px;
@@ -301,9 +301,9 @@ form button{
 }
 .hightlights .percent span{
     font-weight: bold;
-    line-height: 14px;
+    font-size: .9rem;
     color: #A09FB1;
-    margin: .5rem 0;
+    margin-bottom: .5rem;
 }
 .hightlights .rang{
     
@@ -329,6 +329,7 @@ form button{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: .7rem;
 }
 .hightlights i{
     background: rgba(255, 255, 255, 0.3);
@@ -355,6 +356,10 @@ form button{
         gap: 5%;
         width: 100%;
     }
+
+    .main-info{
+        min-height: 55rem;
+    }
     .main-time-img{
         margin: 2.75rem -.9rem -0.5rem -.9rem;
      
@@ -371,10 +376,10 @@ form button{
     }
     .weekend {
         display: grid;
-        grid-template: repeat(1, 11rem ) / repeat(5,  7.5rem);
+        grid-template: repeat(1, 11rem ) / repeat(5,  1fr);
         gap: 1.6rem;
         margin:  0;
-        
+        width: 100%;
         
         
     }
@@ -389,14 +394,14 @@ form button{
     }
     .hightlights .content{
         display: grid;
-        grid-template: repeat(2, 12.75rem) / repeat(2,  20.5rem);
+        grid-template: repeat(2, 14.75rem) / repeat(2,  22.5rem);
         gap: 3rem;    
+        
     }
     .hightlights .content > div{
         width: auto;
-        height:  auto;
-        margin: 0;
-        background: #1E213A;
+        height: auto;
+        margin:  0;
         justify-content:flex-start;
       
     }
