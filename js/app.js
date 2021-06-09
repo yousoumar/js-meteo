@@ -90,10 +90,6 @@ function callAPI(lat, long){
          city.innerText = timezone.slice(timezone.indexOf('/')+1)
          description.innerText = data.current.weather[0].description;
          timeImg.src = `images/${data.current.weather[0].icon}.svg`; 
-         
-       
-         
-
 
      })
      .catch(() => {
