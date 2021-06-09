@@ -10,6 +10,7 @@ const weekend = document.querySelectorAll('.weekend > div');
 const myForm = document.querySelector('form');
 const myInput = document.querySelector('input');
 const info = document.querySelector('.info');
+const hightlights = document.querySelectorAll('.hightlights .content > div');
 
 const today = document.querySelector('.today');
 const options = { weekday: 'long', month: 'long', day: 'numeric' };
@@ -112,7 +113,7 @@ function callApiLatLong(lat, long){
           }
      })
      .then(data =>{
-          console.log(data);
+          
           temperature.innerHTML = Math.trunc(data.current.temp);
           let timezone = data.timezone;
           city.innerText = timezone.slice(timezone.indexOf('/')+1)
@@ -123,20 +124,38 @@ function callApiLatLong(lat, long){
 
           let date = new Date();
           let localDay = date.toLocaleDateString('fr-FR', {weekday: 'long'});
-
           localDay = localDay.charAt(0).toUpperCase() + localDay.slice(1);
-
           let ordredDays = days.slice(days.indexOf(localDay)).concat(days.slice(0, days.indexOf(localDay)));
+
           for(let m = 0; m < weekend.length; m++){
                let inner = `<div>${ordredDays[m]}</div>
-                              <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
-                              <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
+                            <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
+                            <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
 
-                    weekend[m].innerHTML = inner
-                    
-                    
+               weekend[m].innerHTML = inner;         
           }
+          
+          hightlights[0].innerHTML = `<div>Vitesse du vent</div>
+                                      <div class = "number"><span>${data.current.wind_speed}</span> m/s</div>
+                                      <div class ="icon-container"> <i class="fas fa-location-arrow"></i> <div> WSW</div></div>`;
+          hightlights[1].innerHTML = `<div>Humidité</div>
+                                      <div class = "number"><span>${data.current.humidity}</span> %</div>
+                                      <div>
+                                        <div class = "percent">
+                                             <span>0</span> <span>50</span>  <span>100</span>
+                                        </div>
+                                        
+                                        <div class = "rang-container">
+                                             <div class= "rang" style = "width : ${data.current.humidity}%"></div>
+                                        </div>
+                                        <div class ="unit"><span>%</span></div>
+                                        
+                                      </div>`;
 
+          hightlights[2].innerHTML = `<div>Visibilité</div>
+          <div class = "number"><span>${data.current.visibility*0.001}</span> km</div>`;
+          hightlights[3].innerHTML = `<div>Pression</div>
+          <div class = "number"><span>${data.current.pressure}</span> hPa</div>`;
      })
      .catch(() => {
           infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard !:)<p>`);

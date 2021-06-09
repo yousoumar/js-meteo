@@ -263,14 +263,84 @@ form button{
 
 
 
-.hightlights .content div{
+.hightlights .content > div{
     width: calc(100% - 1.75rem);
     height:  13.75rem;
     margin: 1.6rem auto;
+    padding: .5rem;
     background: #1E213A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.hightlights .content{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.hightlights .number{
+    margin: 1rem 0;
+}
+.hightlights .number span{
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;   
+}
+.hightlights .rang-container{
+    width: 229px;
+    height: 8px;
+    left: 72px;
+    top: 1959px;
+    background: #E7E7EB;
+    border-radius: 80px;
+}
+.hightlights .percent{
+    display: flex;
+    justify-content: space-between;
+}
+.hightlights .percent span{
+    font-weight: bold;
+    line-height: 14px;
+    color: #A09FB1;
+    margin: .5rem 0;
+}
+.hightlights .rang{
+    
+    height: 8px;
+    left: 72px;
+    top: 1959px;
+    background: #FFEC65;
+    border-radius: 80px;
     
 }
 
+.hightlights .unit{
+    display: flex;
+    justify-content: flex-end;
+    width: 229px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #A09FB1;
+    margin: .5rem 0;
+ 
+}
+.hightlights .icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hightlights i{
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(-150deg);
+    width: 29.49px;
+    height: 29.49px;
+    border-radius:50% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: .7rem;
+}
 @media only screen and (min-width : 1225px){
     body{
         display: flex;
@@ -322,12 +392,12 @@ form button{
         grid-template: repeat(2, 12.75rem) / repeat(2,  20.5rem);
         gap: 3rem;    
     }
-    .hightlights .content div{
+    .hightlights .content > div{
         width: auto;
         height:  auto;
         margin: 0;
-        padding: 0;
         background: #1E213A;
+        justify-content:flex-start;
       
     }
 }
