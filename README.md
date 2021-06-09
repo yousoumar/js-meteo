@@ -1,10 +1,15 @@
 
-<h1 align="center">Weather App</h1>
+<h1 align="center">Application Météo</h1>
 
 <div align="center">
-   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>. I am still working on it.
+   Inspiré d'un challenge de <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>. C'était à faire
+    avec un Framework front, mais je l'ai entièrement écrite en JavaScript.
 </div>
-
+<div align ="center">
+  Les données proviennent de l'API de <a src ="https://openweathermap.org">. Il est à noter que les prévisions ne collent pas 
+   pas exactement à ce que vous avez par exemple dans votre météo sur votre smartphone, dû au fait que l'offre gratuite de l'API,
+    que j'utilise, fait beaucoup trop d'approximations.</a>  
+</div>
 <div align="center">
   <h3>
     <a href="https://yousoumar.github.io/js-weather-app/">
