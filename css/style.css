@@ -161,9 +161,9 @@ form button{
     margin-right:0 ;
 }
 .main-time-img{
-    margin: 2.75rem -.9rem -1rem -.9rem;
+    margin: 2.75rem -.9rem -4rem -.9rem;
     position: relative;
-    padding: 2rem 0;
+    padding: 6rem 0;
     
  
    
@@ -177,7 +177,7 @@ form button{
     height: 100%;
     opacity: .1;
     pointer-events: none;
-    background: top no-repeat url('/images/cloud-background.png');
+    background: top no-repeat url('/images/background.png');
     
    
 }
