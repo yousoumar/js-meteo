@@ -40,6 +40,7 @@ body{
 img{
     display: block;
     width: 100%;
+    transform: scale(1.8);
 }
 .info{
     position: absolute;

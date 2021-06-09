@@ -89,7 +89,7 @@ function callAPI(lat, long){
          let timezone = data.timezone;
          city.innerText = timezone.slice(timezone.indexOf('/')+1)
          description.innerText = data.current.weather[0].description;
-         timeImg.src = `images/${data.current.weather[0].main}.png`; 
+         timeImg.src = `images/${data.current.weather[0].icon}.svg`; 
          
        
          
