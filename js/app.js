@@ -7,7 +7,7 @@ toogle.addEventListener('click', (e)=>{
         e.currentTarget.innerText ="X"
         b=false;
    }else{
-        e.currentTarget.innerText ="Chercher une ville";
+        e.currentTarget.innerText ="Chercher une capitale";
         b=true;
    }
   
@@ -82,7 +82,7 @@ function callApiLatLong(lat, long){
           }
      })
      .then(data =>{
-         console.log(data);
+         
          temperature.innerHTML = Math.trunc(data.current.temp);
          let timezone = data.timezone;
          city.innerText = timezone.slice(timezone.indexOf('/')+1)
@@ -106,7 +106,7 @@ function callApiCity(city){
                
                return response.json();
           }else{
-               console.log(response);
+               
                infoHandle(`<p>Oups, je ne connais pas cette ville, on y travaille ! :)<p>`);
           }
      })
@@ -137,7 +137,7 @@ myForm.addEventListener('submit', (e)=>{
           toogle.innerText ="X"
           b=false;
      }else{
-          toogle.innerText ="Chercher une ville";
+          toogle.innerText ="Chercher une capitale";
           b=true;
      }
     
