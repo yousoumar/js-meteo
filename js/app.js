@@ -20,10 +20,7 @@ let long = localStorage.getItem('long');
 
 const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
 
-
 let b = true;
-
-
 toogle.addEventListener('click', (e)=>{
    e.currentTarget.parentElement.classList.toggle('show-form');
    if (b){
