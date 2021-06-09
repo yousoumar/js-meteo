@@ -1,22 +1,25 @@
 "use strict"
-
+const locationButton = document.querySelector('.location');
 const toogle = document.querySelector('#toggle-form');
 const city = document.querySelector('.city span:last-child');
 const description = document.querySelector('.main-temperature-description div:first-child');
 const temperature = document.querySelector('.main-temperature span');
-const today = document.querySelector('.today');
-const options = { weekday: 'long', month: 'long', day: 'numeric' };
-today.innerText = new Date().toLocaleDateString('fr-FR', options);
 const timeImg = document.querySelector('.main-time-img img');
 const loader = document.querySelector('.loader');
 const weekend = document.querySelectorAll('.weekend > div');
 const myForm = document.querySelector('form');
 const myInput = document.querySelector('input');
 const info = document.querySelector('.info');
+
+const today = document.querySelector('.today');
+const options = { weekday: 'long', month: 'long', day: 'numeric' };
+today.innerText = new Date().toLocaleDateString('fr-FR', options);
+
 let lat = localStorage.getItem('lat');
 let long = localStorage.getItem('long');
+
 const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
-const locationButton = document.querySelector('.location');
+
 
 let b = true;
 
