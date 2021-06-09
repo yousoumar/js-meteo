@@ -105,7 +105,9 @@ button, input{
     outline: none;
     font-size: inherit;
     color: inherit;
-    padding: .9rem 1.1rem;
+    padding: .9rem .5rem;
+    font-size: .9rem;
+
   
     
 }
@@ -141,10 +143,10 @@ form{
 }
 form input, form button{
     display: block;
-    width: 66%;
+    width: 70%;
     height:max-content;
     background: rgba(110, 112, 122, 0.3);
-    
+    border: 1px solid;
     margin-right: .5rem;
     
 }
@@ -153,7 +155,7 @@ form input::placeholder{
     font-family: inherit;
 }
 form button{
-    width: 30%;
+    width: 25%;
     background: #3C47E9;
     margin-right:0 ;
 }
