@@ -1,6 +1,27 @@
 "use strict"
+import ordredDays from './daysHandle.js';
+
 const toogle = document.querySelector('#toggle-form');
+const city = document.querySelector('.city span:last-child');
+const description = document.querySelector('.main-temperature-description div:first-child');
+const temperature = document.querySelector('.main-temperature span');
+const today = document.querySelector('.today');
+const options = { weekday: 'long', month: 'long', day: 'numeric' };
+today.innerText = new Date().toLocaleDateString('fr-FR', options);
+const timeImg = document.querySelector('.main-time-img img');
+const loader = document.querySelector('.loader');
+const weekend = document.querySelectorAll('.weekend > div');
+const myForm = document.querySelector('form');
+const myInput = document.querySelector('input');
+const info = document.querySelector('.info');
+let lat = localStorage.getItem('lat');
+let long = localStorage.getItem('long');
+const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
+const locationButton = document.querySelector('.location');
+
 let b = true;
+
+
 toogle.addEventListener('click', (e)=>{
    e.currentTarget.parentElement.classList.toggle('show-form');
    if (b){
@@ -13,15 +34,12 @@ toogle.addEventListener('click', (e)=>{
   
 });
 
-const info = document.querySelector('.info');
-let lat = localStorage.getItem('lat');
-let long = localStorage.getItem('long');
-const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
-const locationButton = document.querySelector('.location');
 
 if (lat && long){
    callApiLatLong(lat, long);           
 }
+
+
 locationButton.addEventListener('click', ()=>{
     
      if (!(lat && long)){
@@ -53,22 +71,33 @@ locationButton.addEventListener('click', ()=>{
      
 });
 
-const infoHandle = (message)=>{
+
+
+myForm.addEventListener('submit', (e)=>{
+     e.preventDefault();
+     let city = myInput.value;
+     myInput.value="";
+     callApiCity(city);
+     if (b){
+          toogle.innerText ="X"
+          b=false;
+     }else{
+          toogle.innerText ="Chercher une capitale";
+          b=true;
+     }
+    
+     myForm.parentElement.classList.remove('show-form');
+});
+
+
+
+function infoHandle(message){
      info.innerHTML = message;
      info.style.display = "flex";
      setTimeout(()=>{
           info.style.display = "none"
      },3000);
 }
-
-const city = document.querySelector('.city span:last-child');
-const description = document.querySelector('.main-temperature-description div:first-child');
-const temperature = document.querySelector('.main-temperature span');
-const today = document.querySelector('.today');
-const options = { weekday: 'long', month: 'long', day: 'numeric' };
-today.innerText = new Date().toLocaleDateString('fr-FR', options);
-const timeImg = document.querySelector('.main-time-img img');
-const loader = document.querySelector('.loader');
 
 function callApiLatLong(lat, long){
      fetch(`https://api.openweathermap.org/data/2.5/onecall?lang=fr&units=metric&lat=${lat}&lon=${long}&appid=${APIKEY}`)
@@ -82,12 +111,22 @@ function callApiLatLong(lat, long){
           }
      })
      .then(data =>{
-         
+         console.log(data);
          temperature.innerHTML = Math.trunc(data.current.temp);
          let timezone = data.timezone;
          city.innerText = timezone.slice(timezone.indexOf('/')+1)
          description.innerText = data.current.weather[0].description;
          timeImg.src = `images/${data.current.weather[0].icon}.svg`; 
+         
+         for(let m = 0; m < weekend.length; m++){
+              let inner = `<div>${ordredDays[m]}</div>
+                         <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
+                         <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
+
+               weekend[m].innerHTML = inner
+               
+               
+          }
 
      })
      .catch(() => {
@@ -121,28 +160,6 @@ function callApiCity(city){
 
     
 }
-
-
-
-
-const myForm = document.querySelector('form');
-const myInput = document.querySelector('input');
-
-myForm.addEventListener('submit', (e)=>{
-     e.preventDefault();
-     let city = myInput.value;
-     myInput.value="";
-     callApiCity(city);
-     if (b){
-          toogle.innerText ="X"
-          b=false;
-     }else{
-          toogle.innerText ="Chercher une capitale";
-          b=true;
-     }
-    
-     myForm.parentElement.classList.remove('show-form');
-});
 
 setTimeout(()=>{
      loader.style.display="none";

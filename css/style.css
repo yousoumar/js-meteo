@@ -243,8 +243,13 @@ form button{
     margin: 3.25rem 0;
     justify-content: center;
 }
-.weekend div{
+.weekend > div{
+    
     background: #1E213A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     
 }
 
