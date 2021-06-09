@@ -37,11 +37,6 @@ body{
         transform: rotate(360deg);
     }
 }
-img{
-    display: block;
-    width: 100%;
-    transform: scale(1.8);
-}
 .info{
     position: absolute;
     top: 0;
@@ -58,11 +53,13 @@ img{
     align-items: center;
 
 }
-.info button{
-    margin: 1rem 0;
-    padding: 0 .6rem ;
-    background: #6E707A;
+img{
+    display: block;
+    width: 100%;
+   
 }
+
+
 .main-info{
     background:rgb(30, 33, 58);
     padding: 1.1rem .9rem 2.5rem .9rem;
@@ -184,6 +181,7 @@ form button{
 .main-time-img .img{
     width: 9.4rem;
     margin: 0 auto;
+    transform: scale(2);
 }
 .main-temperature {
     
