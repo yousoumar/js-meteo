@@ -20,7 +20,7 @@ const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
 const locationButton = document.querySelector('.location');
 
 if (lat && long){
-   callAPI(lat, long);           
+   callApiLatLong(lat, long);           
 }
 locationButton.addEventListener('click', ()=>{
     
@@ -33,7 +33,7 @@ locationButton.addEventListener('click', ()=>{
                          localStorage.setItem('lat', lat);
                          long = position.coords.longitude;
                          localStorage.setItem('long', long);
-                         callAPI(lat, long);
+                         callApiLatLong(lat, long);
                       
           
                     }, ()=>{
@@ -47,7 +47,7 @@ locationButton.addEventListener('click', ()=>{
           
      }else{
      
-          callAPI(lat, long);
+          callApiLatLong(lat, long);
           
      }
      
@@ -69,10 +69,8 @@ const options = { weekday: 'long', month: 'long', day: 'numeric' };
 today.innerText = new Date().toLocaleDateString('fr-FR', options);
 const timeImg = document.querySelector('.main-time-img img');
 const loader = document.querySelector('.loader');
-console.log(loader)
 
-
-function callAPI(lat, long){
+function callApiLatLong(lat, long){
      fetch(`https://api.openweathermap.org/data/2.5/onecall?lang=fr&units=metric&lat=${lat}&lon=${long}&appid=${APIKEY}`)
      .then(response=>{
          
@@ -100,6 +98,52 @@ function callAPI(lat, long){
 
     
 }
+function callApiCity(city){
+     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`)
+     .then(response=>{
+         
+          if (response.ok){
+               
+               return response.json();
+          }else{
+               console.log(response);
+               infoHandle(`<p>Oups, je ne connais pas cette ville, on y travaille ! :)<p>`);
+          }
+     })
+     .then(data =>{
+          let lat = data.coord.lat;
+          let long = data.coord.lon;
+          callApiLatLong(lat, long);
+          
+
+     });
+     
+
+    
+}
+
+
+
+
+const myForm = document.querySelector('form');
+const myInput = document.querySelector('input');
+
+myForm.addEventListener('submit', (e)=>{
+     e.preventDefault();
+     let city = myInput.value;
+     myInput.value="";
+     callApiCity(city);
+     if (b){
+          toogle.innerText ="X"
+          b=false;
+     }else{
+          toogle.innerText ="Chercher une ville";
+          b=true;
+     }
+    
+     myForm.parentElement.classList.remove('show-form');
+});
+
 setTimeout(()=>{
      loader.style.display="none";
     }, 1000);
