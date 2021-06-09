@@ -36,6 +36,8 @@ toogle.addEventListener('click', (e)=>{
 
 if (lat && long){
    callApiLatLong(lat, long);           
+}else{
+     callApiCity('Paris');
 }
 
 
