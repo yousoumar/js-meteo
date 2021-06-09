@@ -30,6 +30,7 @@ body{
 }
 .loader i{
     animation: spinner 2s infinite;
+    margin-bottom: 6rem;
 }
 
 @keyframes spinner {
