@@ -105,11 +105,7 @@ button, input{
     outline: none;
     font-size: inherit;
     color: inherit;
-    padding: .9rem .5rem;
-    font-size: .9rem;
-
-  
-    
+    padding: .9rem .5rem;   
 }
 
 button{
