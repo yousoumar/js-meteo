@@ -1,5 +1,4 @@
 "use strict"
-import ordredDays from './daysHandle.js';
 
 const toogle = document.querySelector('#toggle-form');
 const city = document.querySelector('.city span:last-child');
@@ -111,21 +110,29 @@ function callApiLatLong(lat, long){
           }
      })
      .then(data =>{
-         console.log(data);
-         temperature.innerHTML = Math.trunc(data.current.temp);
-         let timezone = data.timezone;
-         city.innerText = timezone.slice(timezone.indexOf('/')+1)
-         description.innerText = data.current.weather[0].description;
-         timeImg.src = `images/${data.current.weather[0].icon}.svg`; 
+          console.log(data);
+          temperature.innerHTML = Math.trunc(data.current.temp);
+          let timezone = data.timezone;
+          city.innerText = timezone.slice(timezone.indexOf('/')+1)
+          description.innerText = data.current.weather[0].description;
+          timeImg.src = `images/${data.current.weather[0].icon}.svg`; 
          
-         for(let m = 0; m < weekend.length; m++){
-              let inner = `<div>${ordredDays[m]}</div>
-                         <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
-                         <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
+          const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
-               weekend[m].innerHTML = inner
-               
-               
+          let date = new Date();
+          let localDay = date.toLocaleDateString('fr-FR', {weekday: 'long'});
+
+          localDay = localDay.charAt(0).toUpperCase() + localDay.slice(1);
+
+          let ordredDays = days.slice(days.indexOf(localDay)).concat(days.slice(0, days.indexOf(localDay)));
+          for(let m = 0; m < weekend.length; m++){
+               let inner = `<div>${ordredDays[m]}</div>
+                              <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
+                              <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
+
+                    weekend[m].innerHTML = inner
+                    
+                    
           }
 
      })
