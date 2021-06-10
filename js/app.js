@@ -1,6 +1,6 @@
 "use strict"
 const locationButton = document.querySelector('.location');
-const toogle = document.querySelector('#toggle-form');
+const toggle = document.querySelector('#toggle-form');
 const city = document.querySelector('.city span:last-child');
 let fulfilledCity= false;
 const description = document.querySelector('.main-temperature-description div:first-child');
@@ -23,13 +23,13 @@ let long = localStorage.getItem('long');
 const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
 
 let b = true;
-toogle.addEventListener('click', (e)=>{
+toggle.addEventListener('click', (e)=>{
    e.currentTarget.parentElement.classList.toggle('show-form');
    if (b){
         e.currentTarget.innerText ="X"
         b=false;
    }else{
-        e.currentTarget.innerText ="Chercher une capitale";
+        e.currentTarget.innerText ="Chercher une ville";
         b=true;
    }
   
@@ -82,10 +82,10 @@ myForm.addEventListener('submit', (e)=>{
      myInput.value="";
      callApiCity(city);
      if (b){
-          toogle.innerText ="X"
+          toggle.innerText ="X"
           b=false;
      }else{
-          toogle.innerText ="Chercher une ville";
+          toggle.innerText ="Chercher une ville";
           b=true;
      }
     
