@@ -149,7 +149,7 @@ function callApiLatLong(lat, long){
 
           hightlights[2].innerHTML = `<div>Visibilité</div>
                                       <div class = "number">
-                                        <span>${data.current.visibility*0.001}</span> km
+                                        <span>${Math.trunc(data.current.visibility*0.001)}</span> km
                                       </div>`;
           hightlights[3].innerHTML = `<div>Pression</div>
                                       <div class = "number">
