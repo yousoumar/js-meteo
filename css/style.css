@@ -167,7 +167,7 @@ form button{
     height: 100%;
     opacity: .1;
     pointer-events: none;
-    background: top no-repeat url('/images/background.png');   
+    background: top no-repeat url('https://yousoumar.github.io/js-weather-app/images/background.png');   
 }
 
 .main-time-img .img{
