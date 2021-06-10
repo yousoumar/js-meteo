@@ -10,8 +10,6 @@ body{
     min-height: 100vh;
     color: #E7E7EB;
     font-family: 'Raleway', sans-serif;
-    position: relative;
-    
 }
 
 .loader{
@@ -26,7 +24,6 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 4rem;
-
 }
 .loader i{
     animation: spinner 2s infinite;
@@ -56,8 +53,7 @@ body{
 }
 img{
     display: block;
-    width: 100%;
-   
+    width: 100%; 
 }
 
 
@@ -65,26 +61,22 @@ img{
     background:rgb(30, 33, 58);
     padding: 1.1rem .9rem 2.5rem .9rem;
     text-align: center;
-    position: relative;
-  
-    
+    position: relative;  
 }
 
 .search-location{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    
+    align-items: center;   
 }
+
 .search{
     background: #6E707A;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
     width: 11rem;
-    height: 3rem; 
-    
-  
-   
+    height: 3rem;   
 }
+
 .location{
     width: 3rem;
     height: 3rem;
@@ -93,8 +85,7 @@ img{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    cursor: pointer;
-   
+    cursor: pointer;  
 }
 
 button, input{
@@ -112,6 +103,7 @@ button, input{
 button{
     cursor: pointer;
 }
+
 form{
     position: absolute;
     top: 0;
@@ -122,14 +114,12 @@ form{
     background-color:#1E213A;
     padding: 4rem .9rem 6.5rem .9rem;
     display: none;    
-    overflow: hidden;
- 
-   
+    overflow: hidden; 
 }
+
 .show-form form{
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-between; 
 }
 
 .show-form  #toggle-form{
@@ -141,33 +131,33 @@ form{
     height: auto;
     padding: 0;
     font-size: 1.5rem;
-  
 }
+
 form input, form button{
     display: block;
     width: 70%;
     height:max-content;
     background: rgba(110, 112, 122, 0.3);
-    margin-right: .5rem;
-    
+    margin-right: .5rem;    
 }
+
 form input::placeholder{
     color: #A09FB1;
     font-family: inherit;
 }
+
 form button{
     width: 25%;
     background: #3C47E9;
     margin-right:0 ;
 }
+
 .main-time-img{
     margin: 1rem -.9rem -5rem -.9rem;
     position: relative;
-    padding: 6rem 0;
-    
- 
-   
+    padding: 6rem 0;   
 }
+
 .main-time-img::after{
     content: '';
     position: absolute;
@@ -177,36 +167,29 @@ form button{
     height: 100%;
     opacity: .1;
     pointer-events: none;
-    background: top no-repeat url('/images/background.png');
-    
-   
+    background: top no-repeat url('/images/background.png');   
 }
+
 .main-time-img .img{
     width: 9.4rem;
     margin: 0 auto;
     transform: scale(1.5);
 }
-.main-temperature {
-    
+.main-temperature {    
     font-size: 2rem;
-
-
-        
-    
 }
+
 .main-temperature span{
     font-weight: 500;
     font-size: 6rem;
     color: #E7E7EB;
 }
 
-.main-temperature-description{
-   
+.main-temperature-description{   
     font-weight: 600;
     font-size: 1.5rem;
     color: #A09FB1;
     margin: 2rem 0;
-   
 }
 
 .today{
@@ -240,20 +223,20 @@ form button{
     margin: 3.25rem 0;
     justify-content: center;
 }
+
 .weekend > div{
     
     background: #1E213A;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;    
 }
 
 .hightlights{
     margin: 0 1.3rem;
-   
 }
+
 .hightlights h1{
     font-style: normal;
     font-weight: bold;
@@ -261,8 +244,6 @@ form button{
     padding: 1.75rem 0;
     margin-left:1rem ;
 }
-
-
 
 .hightlights .content > div{
     width: calc(100% - 1.75rem);
@@ -273,21 +254,23 @@ form button{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;    
 }
+
 .hightlights .content{
     font-size: 1.2rem;
     font-weight: 500;
 }
+
 .hightlights .number{
     margin: 1rem 0;
 }
+
 .hightlights .number span{
     font-weight: bold;
-    font-size: 64px;
-  
+    font-size: 64px;  
 }
+
 .hightlights .rang-container{
     width: 229px;
     height: 8px;
@@ -296,24 +279,25 @@ form button{
     background: #E7E7EB;
     border-radius: 80px;
 }
+
 .hightlights .percent{
     display: flex;
     justify-content: space-between;
 }
+
 .hightlights .percent span{
     font-weight: bold;
     font-size: .9rem;
     color: #A09FB1;
     margin-bottom: .5rem;
 }
-.hightlights .rang{
-    
+
+.hightlights .rang{    
     height: 8px;
     left: 72px;
     top: 1959px;
     background: #FFEC65;
     border-radius: 80px;
-    
 }
 
 .hightlights .unit{
@@ -324,14 +308,15 @@ form button{
     line-height: 14px;
     color: #A09FB1;
     margin: .5rem 0;
- 
 }
+
 .hightlights .icon-container{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: .7rem;
 }
+
 .hightlights i{
     background: rgba(255, 255, 255, 0.3);
     transform: rotate(-150deg);
@@ -343,12 +328,14 @@ form button{
     align-items: center;
     margin-right: .7rem;
 }
+
 @media only screen and (min-width : 1225px){
     body{
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     main{
         display: grid;
         grid-template: 64rem / 28.7rem auto;
@@ -361,44 +348,45 @@ form button{
     .main-info{
         min-height: 55rem;
     }
+
     .main-time-img{
         margin: 2.75rem -.9rem -0.5rem -.9rem;
      
     }
+
     .main-temperature-description div:first-child{
-    
         margin: 2rem 0;
     }
+
     .secondary-info{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
+
     .weekend {
         display: grid;
         grid-template: repeat(1, 11rem ) / repeat(5,  1fr);
         gap: 1.6rem;
         margin:  0;
-        width: 100%;
-        
-        
+        width: 100%;    
     }
 
     .hightlights{
-        margin: 0 ;
-       
+        margin: 0 ;   
     }
-    .hightlights h1{
-       
+
+    .hightlights h1{   
         margin-left:0;
     }
+
     .hightlights .content{
         display: grid;
         grid-template: repeat(2, 14.75rem) / repeat(2,  22.5rem);
-        gap: 3rem;    
-        
+        gap: 3rem;       
     }
+    
     .hightlights .content > div{
         width: auto;
         height: auto;
