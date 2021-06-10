@@ -342,7 +342,7 @@ form input::placeholder{
         grid-template: 11rem / repeat(5,  1fr);
         gap: 1.6rem;
         margin:  1rem 0;
-        width: 100%;    
+        width: 100%;      
     }
 
     .hightlights{
@@ -355,11 +355,12 @@ form input::placeholder{
 
     .hightlights .content{
         display: grid;
-        grid-template: repeat(2, 13rem) / repeat(2,  1fr);
+        grid-template: repeat(2, 1fr) / repeat(2,  1fr);
         gap: 3rem; 
     }
     
     .hightlights .content > div{
         width: 100%;
+        margin: 0;
     }
 }
