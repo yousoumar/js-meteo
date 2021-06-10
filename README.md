@@ -3,7 +3,7 @@
 
 ---
 
-Inspirée d'un <a href ="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv">challenge</a> de <a href="http://devchallenges.io">devchallenges.io</a>. C'était à faire avec un framework front, mais je l'ai entièrement écrite en vanilla JavaScript. Les données proviennent de l'API de <a href ="https://openweathermap.org">OpenWeather</a>. 
+Un <a href ="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv">challenge</a> de <a href="http://devchallenges.io">devchallenges.io</a>, c'était à faire avec un framework front, mais je l'ai entièrement écrite en vanilla JavaScript. Les données proviennent de l'API de <a href ="https://openweathermap.org">OpenWeather</a>. 
 
 Il est à noter que les prévisions ne collent pas forcement à ce que vous pourriez avoir, dû au fait que l'offre gratuite de l'API que j'utilise, fait beaucoup trop d'approximations.
 
