@@ -159,7 +159,13 @@ function callApiLatLong(lat, long){
           <div class = "number"><span>${data.current.visibility*0.001}</span> km</div>`;
           hightlights[3].innerHTML = `<div>Pression</div>
           <div class = "number"><span>${data.current.pressure}</span> hPa</div>`;
+     })
+     .catch(() => {
+          infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard !:)<p>`);
+          
+
      });
+
     
 }
 function callApiCity(searchedCity){
@@ -182,6 +188,9 @@ function callApiCity(searchedCity){
           callApiLatLong(lat, long);
           
 
+     })
+     .catch(()=>{
+          infoHandle(`<p>Oups, je ne connais pas cette ville, on y travaille ! :)<p>`);
      });
      
 
