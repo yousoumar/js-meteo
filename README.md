@@ -1,5 +1,5 @@
 
-Application Météo
+**Superbe responsive aplication Météo**
 
 Inspirée d'un challenge de <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>. C'était à faire avec un Framework front, mais en deux jours, je l'ai entièrement écrite en JavaScript. Les données proviennent de l'API de <a href ="https://openweathermap.org">OpenWeather</a>. 
 
