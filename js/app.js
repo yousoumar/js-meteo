@@ -2,9 +2,10 @@
 const locationButton = document.querySelector('.location');
 const toggle = document.querySelector('#toggle-form');
 const city = document.querySelector('.city span:last-child');
-let fulfilledCity= false;
+let fulfilledCity= false; 
 const description = document.querySelector('.main-temperature-description div:first-child');
 const temperature = document.querySelector('.main-temperature span');
+const today = document.querySelector('.today');
 const timeImg = document.querySelector('.main-time-img img');
 const loader = document.querySelector('.loader');
 const weekend = document.querySelectorAll('.weekend > div');
@@ -13,14 +14,10 @@ const myInput = document.querySelector('input');
 const info = document.querySelector('.info');
 const hightlights = document.querySelectorAll('.hightlights .content > div');
 
-const today = document.querySelector('.today');
-const options = { weekday: 'long', month: 'long', day: 'numeric' };
-today.innerText = new Date().toLocaleDateString('fr-FR', options);
+const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
 
 let lat = localStorage.getItem('lat');
 let long = localStorage.getItem('long');
-
-const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
 
 let b = true;
 toggle.addEventListener('click', (e)=>{
@@ -35,6 +32,9 @@ toggle.addEventListener('click', (e)=>{
   
 });
 
+
+const options = {weekday: 'long', month: 'long', day: 'numeric'};
+today.innerText = new Date().toLocaleDateString('fr-FR', options);
 
 if (lat && long){
    callApiLatLong(lat, long);           
@@ -105,13 +105,7 @@ function infoHandle(message){
 function callApiLatLong(lat, long){
      fetch(`https://api.openweathermap.org/data/2.5/onecall?lang=fr&units=metric&lat=${lat}&lon=${long}&appid=${APIKEY}`)
      .then(response=>{
-         
-          if (response.ok){
-               
-               return response.json();
-          }else{
-               infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard ! :)<p>`);
-          }
+          return response.json();    
      })
      .then(data =>{
           
@@ -124,18 +118,16 @@ function callApiLatLong(lat, long){
           timeImg.src = `images/${data.current.weather[0].icon}.svg`; 
          
           const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-
           let date = new Date();
           let localDay = date.toLocaleDateString('fr-FR', {weekday: 'long'});
           localDay = localDay.charAt(0).toUpperCase() + localDay.slice(1);
           let ordredDays = days.slice(days.indexOf(localDay)).concat(days.slice(0, days.indexOf(localDay)));
 
           for(let m = 0; m < weekend.length; m++){
-               let inner = `<div>${ordredDays[m]}</div>
-                            <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
-                            <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
-
-               weekend[m].innerHTML = inner;         
+               weekend[m].innerHTML = `<div>${ordredDays[m]}</div>
+                                       <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
+                                       <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
+      
           }
           
           hightlights[0].innerHTML = `<div>Vitesse du vent</div>
@@ -156,14 +148,16 @@ function callApiLatLong(lat, long){
                                       </div>`;
 
           hightlights[2].innerHTML = `<div>Visibilité</div>
-          <div class = "number"><span>${data.current.visibility*0.001}</span> km</div>`;
+                                      <div class = "number">
+                                        <span>${data.current.visibility*0.001}</span> km
+                                      </div>`;
           hightlights[3].innerHTML = `<div>Pression</div>
-          <div class = "number"><span>${data.current.pressure}</span> hPa</div>`;
+                                      <div class = "number">
+                                        <span>${data.current.pressure}</span> hPa
+                                      </div>`;
      })
      .catch(() => {
-          infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard !:)<p>`);
-          
-
+          infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard. :)<p>`);
      });
 
     
@@ -171,15 +165,8 @@ function callApiLatLong(lat, long){
 function callApiCity(searchedCity){
      fulfilledCity = true;
      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${APIKEY}`)
-     .then(response=>{
-         
-          if (response.ok){
-               
-               return response.json();
-          }else{
-               
-               infoHandle(`<p>Oups, je ne connais pas cette ville, on y travaille ! :)<p>`);
-          }
+     .then(response=>{  
+          return response.json();        
      })
      .then(data =>{
           let lat = data.coord.lat;
@@ -190,7 +177,7 @@ function callApiCity(searchedCity){
 
      })
      .catch(()=>{
-          infoHandle(`<p>Oups, je ne connais pas cette ville, on y travaille ! :)<p>`);
+          infoHandle(`<p>Oups, je ne connais pas cette ville, on y travaille. :)<p>`);
      });
      
 
