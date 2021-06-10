@@ -10,6 +10,7 @@ body{
     min-height: 100vh;
     color: #E7E7EB;
     font-family: 'Raleway', sans-serif;
+    
 }
 
 .loader{
@@ -55,10 +56,12 @@ img{
     display: block;
     width: 100%; 
 }
-
+.card{
+    background:rgb(30, 33, 58);
+}
 
 .main-info{
-    background:rgb(30, 33, 58);
+    
     padding: 1.1rem .9rem 2.5rem .9rem;
     text-align: center;
     position: relative;  
@@ -89,14 +92,12 @@ img{
 }
 
 button, input{
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
     border: none;
     outline: none;
     font-size: inherit;
+    background-color: transparent;
     color: inherit;
+    display: block;
     padding: .9rem .5rem;   
 }
 
@@ -127,8 +128,6 @@ form{
     z-index: 2;
     top: 1rem;
     right: .9rem;
-    width: max-content;
-    height: auto;
     padding: 0;
     font-size: 1.5rem;
 }
@@ -140,18 +139,15 @@ form input, form button{
     background: rgba(110, 112, 122, 0.3);
     margin-right: .5rem;    
 }
-
-form input::placeholder{
-    color: #A09FB1;
-    font-family: inherit;
-}
-
 form button{
     width: 25%;
     background: #3C47E9;
     margin-right:0 ;
 }
-
+form input::placeholder{
+    color: #A09FB1;
+    font-family: inherit;
+}
 .main-time-img{
     margin: 1rem -.9rem -5rem -.9rem;
     position: relative;
@@ -165,7 +161,7 @@ form button{
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .1;
+    opacity: .2;
     pointer-events: none;
     background: top no-repeat url('https://yousoumar.github.io/js-weather-app/images/background.png');   
 }
@@ -195,7 +191,6 @@ form button{
 .today{
     font-weight: 500;
     font-size: 1.125rem;
-    line-height: 21px;
     color: #88869D;
     margin: 2rem 0;
 }
@@ -208,7 +203,6 @@ form button{
 .city{
     font-weight: 600;
     font-size: 1.2rem;
-    line-height: 1.5;
     color: #88869D;
 }
 .city span{
@@ -225,8 +219,6 @@ form button{
 }
 
 .weekend > div{
-    
-    background: #1E213A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -239,7 +231,6 @@ form button{
 
 .hightlights h1{
     font-style: normal;
-    font-weight: bold;
     font-size: 1.5rem;
     padding: 1.75rem 0;
     margin-left:1rem ;
@@ -247,14 +238,12 @@ form button{
 
 .hightlights .content > div{
     width: calc(100% - 1.75rem);
-    min-height: 14rem;
+    min-height: 12rem;
     margin: 1.6rem auto;
     padding: 1.5rem .5rem .5rem .5rem;
-    background: #1E213A;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
+    text-align: center;
+    
+      
 }
 
 .hightlights .content{
@@ -268,14 +257,13 @@ form button{
 
 .hightlights .number span{
     font-weight: bold;
-    font-size: 64px;  
+    font-size: 3rem;  
 }
 
 .hightlights .rang-container{
-    width: 229px;
+    width: 80%;
     height: 8px;
-    left: 72px;
-    top: 1959px;
+    margin: 0 auto;
     background: #E7E7EB;
     border-radius: 80px;
 }
@@ -283,6 +271,8 @@ form button{
 .hightlights .percent{
     display: flex;
     justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .hightlights .percent span{
@@ -294,8 +284,6 @@ form button{
 
 .hightlights .rang{    
     height: 8px;
-    left: 72px;
-    top: 1959px;
     background: #FFEC65;
     border-radius: 80px;
 }
@@ -303,11 +291,11 @@ form button{
 .hightlights .unit{
     display: flex;
     justify-content: flex-end;
-    width: 229px;
+    width: 80%;
     font-weight: bold;
-    line-height: 14px;
     color: #A09FB1;
-    margin: .5rem 0;
+    margin: .3rem auto;
+ 
 }
 
 .hightlights .icon-container{
@@ -322,6 +310,7 @@ form button{
     transform: rotate(-150deg);
     width: 29.49px;
     height: 29.49px;
+    padding: 1rem;
     border-radius:50% ;
     display: flex;
     justify-content: center;
@@ -330,49 +319,29 @@ form button{
 }
 
 @media only screen and (min-width : 1225px){
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
+    
     main{
         display: grid;
-        grid-template: 64rem / 28.7rem auto;
+        grid-template: auto / 28.7rem 1fr auto ;
         align-items: center;
-        justify-content: center;
         gap: 5%;
         width: 100%;
+        min-height: 100vh;
     }
-
+    
     .main-info{
-        min-height: 55rem;
-    }
-
-    .main-time-img{
-        margin: 2.75rem -.9rem -0.5rem -.9rem;
-     
-    }
-
-    .main-temperature-description div:first-child{
-        margin: 2rem 0;
+        min-height: 100%;
     }
 
     .main-temperature{
-        margin-top: 4rem;
-    }
-    .secondary-info{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        margin-top: 30%;
     }
     
     .weekend {
         display: grid;
-        grid-template: repeat(1, 11rem ) / repeat(5,  1fr);
+        grid-template: 11rem / repeat(5,  1fr);
         gap: 1.6rem;
-        margin:  0;
+        margin:  1rem 0;
         width: 100%;    
     }
 
@@ -386,15 +355,11 @@ form button{
 
     .hightlights .content{
         display: grid;
-        grid-template: repeat(2, 14.75rem) / repeat(2,  22.5rem);
-        gap: 3rem;       
+        grid-template: repeat(2, 13rem) / repeat(2,  1fr);
+        gap: 3rem; 
     }
     
     .hightlights .content > div{
-        width: auto;
-        height: auto;
-        margin:  0;
-        justify-content:flex-start;
-      
+        width: 100%;
     }
 }
