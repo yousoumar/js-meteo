@@ -184,6 +184,8 @@ function callApiCity(searchedCity){
     
 }
 
-setTimeout(()=>{
-     loader.style.display="none";
-    }, 1000);
+window.addEventListener('load', ()=>{
+     setTimeout(()=>{
+          loader.style.display="none";
+         }, 1000);
+});
