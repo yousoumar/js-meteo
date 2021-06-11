@@ -134,7 +134,7 @@ function callApiLatLong(lat, long){
                                       <div class = "number"><span>${data.current.wind_speed}</span> m/s</div>
                                       <div class ="icon-container"> 
                                         <div class = "icon">
-                                             <img src = "../images/location.svg"></img>
+                                             <img src = "https://yousoumar.github.io/js-weather-app/images/location.svg"></img>
                                         </div>
                                         <div> WSW</div>
                                       </div>`;
