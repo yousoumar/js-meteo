@@ -133,9 +133,7 @@ function callApiLatLong(lat, long){
           hightlights[0].innerHTML = `<div>Vitesse du vent</div>
                                       <div class = "number"><span>${data.current.wind_speed}</span> m/s</div>
                                       <div class ="icon-container"> 
-                                        <div class = "icon">
-                                             <img src = "https://yousoumar.github.io/js-weather-app/images/location.svg"></img>
-                                        </div>
+                                        <i class="fas fa-location-arrow"></i>
                                         <div> WSW</div>
                                       </div>`;
           hightlights[1].innerHTML = `<div>Humidité</div>
