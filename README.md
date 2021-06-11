@@ -1,5 +1,5 @@
 
-**Superbe responsive aplication Météo**
+**Responsive aplication Météo**
 
 ---
 

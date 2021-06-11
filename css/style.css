@@ -306,7 +306,7 @@ form input::placeholder{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: .7rem;
+    margin-top: 1.5rem;
 }
 
 .hightlights i{
@@ -359,7 +359,7 @@ form input::placeholder{
 
     .hightlights .content{
         display: grid;
-        grid-template: repeat(2, 1fr) / repeat(2,  1fr);
+        grid-template: 1fr auto / repeat(2,  1fr);
         gap: 3rem; 
     }
     
