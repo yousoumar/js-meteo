@@ -104,7 +104,9 @@ button, input{
 button{
     cursor: pointer;
 }
-
+#toggle-form{
+    width: 100%;
+}
 form{
     position: absolute;
     top: 0;
@@ -127,6 +129,7 @@ form{
     position:absolute;
     z-index: 2;
     top: 1rem;
+    width: auto;
     right: .9rem;
     padding: 0;
     font-size: 1.5rem;
@@ -137,12 +140,13 @@ form input, form button{
     width: 70%;
     height:max-content;
     background: rgba(110, 112, 122, 0.3);
-    margin-right: .5rem;    
+      
 }
 form button{
     width: 25%;
     background: #3C47E9;
     margin-right:0 ;
+    border: 1px red;
 }
 form input::placeholder{
     color: #A09FB1;
