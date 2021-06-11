@@ -307,13 +307,14 @@ form input::placeholder{
     justify-content: center;
     align-items: center;
     margin-top: 1.5rem;
+
 }
 
-.hightlights i{
+.hightlights .icon{
     background: rgba(255, 255, 255, 0.3);
     transform: rotate(-150deg);
-    width: 29.49px;
-    height: 29.49px;
+    width: 35px;
+    height: 35px;
     padding: 1rem;
     border-radius:50% ;
     display: flex;
@@ -321,7 +322,11 @@ form input::placeholder{
     align-items: center;
     margin-right: .7rem;
 }
-
+.hightlights .icon img{
+    
+    width: 20px;
+    height: 20px;
+}
 @media only screen and (min-width : 1100px){
     
     main{
