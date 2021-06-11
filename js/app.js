@@ -126,7 +126,7 @@ function callApiLatLong(lat, long){
           for(let m = 0; m < weekend.length; m++){
                weekend[m].innerHTML = `<div>${ordredDays[m]}</div>
                                        <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
-                                       <div>${Math.trunc(data.daily[m].temp.max)}° - ${Math.trunc(data.daily[m].temp.min)}°</div>`;
+                                       <div><span class="max">${Math.trunc(data.daily[m].temp.max)}°C</span> <span class="min">${Math.trunc(data.daily[m].temp.min)}°C</span></div>`;
       
           }
           

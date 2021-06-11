@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: #100E1D;
+    background-color:black;
     min-height: 100vh;
     color: #E7E7EB;
     font-family: 'Raleway', sans-serif;
@@ -228,7 +228,16 @@ form input::placeholder{
     align-items: center;
     flex-direction: column;    
 }
-
+.weekend span{
+    display: inline;
+    margin: 0 .3rem;
+}
+.weekend span.min{
+    color: #A09FB1;
+}
+.weekend span.max{
+    
+}
 .hightlights{
     margin: 0 1.3rem;
 }
@@ -323,7 +332,7 @@ form input::placeholder{
     margin-right: .7rem;
 }
 
-@media only screen and (min-width : 1100px){
+@media only screen and (min-width : 1150px){
     
     main{
         display: grid;
