@@ -8,4 +8,5 @@ Il est à noter que les prévisions et la localisation ne collent pas forcement 
 
 A noter aussi que j'utilise le stockage du navigateur pour que l'application se souvienne de la latitude et longitude d'un utilisateur après une première visite, à l'issue de la quelle il fait une recherche via sa géolocalisation.
 
+Vous pouvez visiter le site en cliquant sur l'image ou le lien en bas de la section "About".
 
