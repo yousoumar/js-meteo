@@ -1,4 +1,4 @@
-**Responsive `mobile first` application météo**, développée en `HTML`, `CSS` et `JavaScript`. Les données proviennent de l'`API` de <a href ="https://openweathermap.org">OpenWeather</a>. 
+`Responsive mobile first application météo`, développée en `HTML`, `CSS` et `JavaScript`. Les données proviennent de l'`API` de <a href ="https://openweathermap.org">OpenWeather</a>. 
 
 Il est à noter que les prévisions et la localisation ne collent pas forcement à ce que vous pourriez avoir, dû au fait que l'offre gratuite de l'`API` que j'utilise, fait beaucoup trop d'approximations.
 
