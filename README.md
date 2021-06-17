@@ -6,7 +6,7 @@ A noter aussi que j'utilise le stockage du navigateur pour se souvenir de la lat
 
 Vous pouvez visiter le site en cliquant sur l'image ci-dessous ou sur le lien en bas de la section `About`.
 
-`Données et design récupérés chez devchallenge.io, tous droits réservés !`
+`Design récupéré chez devchallenge.io, tous droits réservés !`
 
 <a href = "https://yousoumar.github.io/js-weather-app/"><img src = "images/screenshot.png"></img></a>
 
