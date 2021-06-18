@@ -2,7 +2,7 @@
 
 Il est à noter que les prévisions et la localisation ne collent pas forcement à ce que vous pourriez avoir, dû au fait que l'offre gratuite de l'`API` que j'utilise, fait beaucoup trop d'approximations.
 
-A noter aussi que j'utilise le `localStorage` pour se souvenir de la latitude et longitude d'un utilisateur après une première visite, à l'issue de la quelle il utilise la géolocalisation.
+A noter aussi que j'utilise le `localStorage` pour se souvenir de la latitude et longitude d'un utilisateur après une première visite, à l'issue de la quelle il utilise la `géolocalisation`.
 
 Vous pouvez visiter le site en cliquant sur l'image ci-dessous ou sur le lien en bas de la section `About`.
 
