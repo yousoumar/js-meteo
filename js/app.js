@@ -4,7 +4,7 @@ const toggle = document.querySelector('#toggle-form');
 const city = document.querySelector('.city span:last-child');
 let fulfilledCity= false; 
 const description = document.querySelector('.main-temperature-description div:first-child');
-const temperature = document.querySelector('.main-temperature span');
+const temperature = document.querySelector('.main-temperature');
 const today = document.querySelector('.today');
 const timeImg = document.querySelector('.main-time-img img');
 const loader = document.querySelector('.loader');
@@ -15,9 +15,6 @@ const info = document.querySelector('.info');
 const hightlights = document.querySelectorAll('.hightlights .content > div');
 
 const APIKEY = "50021d7620cf40fe0d17ecde68cfceeb";
-
-let lat = localStorage.getItem('lat');
-let long = localStorage.getItem('long');
 
 let b = true;
 toggle.addEventListener('click', (e)=>{
@@ -31,17 +28,9 @@ toggle.addEventListener('click', (e)=>{
    }
   
 });
-
-
-const options = {weekday: 'long', month: 'long', day: 'numeric'};
-today.innerText = new Date().toLocaleDateString('fr-FR', options);
-
-if (lat && long){
-   callApiLatLong(lat, long);           
-}else{
-     callApiCity('London');
-}
-
+       
+callApiCity('London');
+let lat, long;
 
 locationButton.addEventListener('click', ()=>{
      fulfilledCity = false;
@@ -51,9 +40,7 @@ locationButton.addEventListener('click', ()=>{
                if (navigator.geolocation){
                     navigator.geolocation.getCurrentPosition((position)=>{
                          lat = position.coords.latitude;
-                         localStorage.setItem('lat', lat);
                          long = position.coords.longitude;
-                         localStorage.setItem('long', long);
                          callApiLatLong(lat, long);
                       
           
@@ -108,8 +95,11 @@ function callApiLatLong(lat, long){
           return response.json();    
      })
      .then(data =>{
+
+          const options = {weekday: 'long', month: 'long', day: 'numeric'};
+          today.innerText = new Date().toLocaleDateString('fr-FR', options);
+          temperature.innerHTML = `<span>${Math.trunc(data.current.temp)}</span> °C` ;
           
-          temperature.innerHTML = Math.trunc(data.current.temp);
           if(!fulfilledCity){
                city.innerText = data.timezone;
           }
@@ -160,18 +150,21 @@ function callApiLatLong(lat, long){
                                       </div>`;
      })
      .catch(() => {
-          infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard. :)<p>`);
+          infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard svp. :)<p>`);
      });
 
     
 }
+let firstLoad = true;
 function callApiCity(searchedCity){
-     fulfilledCity = true;
+     
      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${APIKEY}`)
      .then(response=>{  
           return response.json();        
      })
      .then(data =>{
+          fulfilledCity = true;
+          firstLoad = false;
           let lat = data.coord.lat;
           let long = data.coord.lon;
           city.innerText = data.name;  
@@ -180,7 +173,12 @@ function callApiCity(searchedCity){
 
      })
      .catch(()=>{
-          infoHandle(`<p>Oups, je ne connais pas cette ville, on y travaille. :)<p>`);
+          if (firstLoad){
+               infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard svp. :)<p>`);
+          }else{
+               infoHandle(`<p>Oups, je ne connais pas encore cette ville mais on y travaille. :)<p>`);
+          }
+          
      });
    
 }
