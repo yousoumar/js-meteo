@@ -92,7 +92,11 @@ function infoHandle(message){
 function callApiLatLong(lat, long){
      fetch(`https://api.openweathermap.org/data/2.5/onecall?lang=fr&units=metric&lat=${lat}&lon=${long}&appid=${APIKEY}`)
      .then(response=>{
-          return response.json();    
+          if (response.ok){
+               return response.json();  
+          }else{
+               throw Error();
+          }    
      })
      .then(data =>{
 
@@ -160,7 +164,12 @@ function callApiCity(searchedCity){
      
      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${APIKEY}`)
      .then(response=>{  
-          return response.json();        
+          if (response.ok){
+               return response.json();  
+          }else{
+               throw Error();
+          }
+                
      })
      .then(data =>{
           fulfilledCity = true;
