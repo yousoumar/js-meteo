@@ -1,4 +1,5 @@
-"use strict"
+"use strict";
+
 const locationButton = document.querySelector('.location');
 const toggle = document.querySelector('#toggle-form');
 const city = document.querySelector('.city span:last-child');
@@ -41,6 +42,7 @@ locationButton.addEventListener('click', ()=>{
                     navigator.geolocation.getCurrentPosition((position)=>{
                          lat = position.coords.latitude;
                          long = position.coords.longitude;
+                         loader.style.display="flex";
                          callApiLatLong(lat, long);
                       
           
@@ -67,6 +69,7 @@ myForm.addEventListener('submit', (e)=>{
      e.preventDefault();
      let city = myInput.value;
      myInput.value="";
+     loader.style.display="flex";
      callApiCity(city);
      if (b){
           toggle.innerText ="X"
@@ -81,12 +84,15 @@ myForm.addEventListener('submit', (e)=>{
 
 
 
-function infoHandle(message){
+function infoHandle(message, apiError = false ){
      info.innerHTML = message;
      info.style.display = "flex";
-     setTimeout(()=>{
-          info.style.display = "none"
-     },3000);
+     if(!apiError){
+          setTimeout(()=>{
+               info.style.display = "none"
+          },3000);
+     }
+    
 }
 
 function callApiLatLong(lat, long){
@@ -117,6 +123,8 @@ function callApiLatLong(lat, long){
           localDay = localDay.charAt(0).toUpperCase() + localDay.slice(1);
           let ordredDays = days.slice(days.indexOf(localDay)).concat(days.slice(0, days.indexOf(localDay)));
 
+          document.querySelector('h1').innerHTML = 'Les points forts';
+          
           for(let m = 0; m < weekend.length; m++){
                weekend[m].innerHTML = `<div>${ordredDays[m]}</div>
                                        <div><img src = images/${data.daily[m].weather[0].icon}.svg = ></img></div>
@@ -152,14 +160,21 @@ function callApiLatLong(lat, long){
                                       <div class = "number">
                                         <span>${data.current.pressure}</span> hPa
                                       </div>`;
+          setTimeout(()=>{
+               loader.style.display="none";
+          }, 1000);
      })
      .catch(() => {
-          infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard svp. :)<p>`);
+          // the api is unreachable or whatever
+          setTimeout(()=>{
+               loader.style.display="none";
+          }, 1000);
+          infoHandle(`<p>Oups, il y a un petit soucis avec notre API, revenez plus tard svp. :)<p>`, true);
      });
 
     
 }
-let firstLoad = true;
+
 function callApiCity(searchedCity){
      
      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${APIKEY}`)
@@ -167,13 +182,12 @@ function callApiCity(searchedCity){
           if (response.ok){
                return response.json();  
           }else{
-               throw Error();
+               throw Error("error");
           }
                 
      })
      .then(data =>{
           fulfilledCity = true;
-          firstLoad = false;
           let lat = data.coord.lat;
           let long = data.coord.lon;
           city.innerText = data.name;  
@@ -181,18 +195,16 @@ function callApiCity(searchedCity){
           
 
      })
-     .catch(()=>{
-          if (firstLoad){
-               infoHandle(`<p>Oups, il y a un petit soucis, revenez plus tard svp. :)<p>`);
-          }else{
+     .catch((e)=>{
+          setTimeout(()=>{
+               loader.style.display="none";
+          }, 1000);
+          if (e.message !== "error"){ // the api is unreachable or whatever
+               infoHandle(`<p>Oups, il y a un petit soucis avec notre API, revenez plus tard svp. :)<p>`, true);
+          }else{ // user has tape a city name unknown by the api 
                infoHandle(`<p>Oups, je ne connais pas encore cette ville mais on y travaille. :)<p>`);
           }
           
      });
    
 }
-window.addEventListener('load', ()=>{
-     setTimeout(()=>{
-          loader.style.display="none";
-         }, 1000);
-});
