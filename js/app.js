@@ -67,7 +67,10 @@ locationButton.addEventListener('click', ()=>{
 
 myForm.addEventListener('submit', (e)=>{
      e.preventDefault();
-     let city = myInput.value;
+     let city = myInput.value.trim();
+     if (city.length === 0){
+          return;
+     } 
      myInput.value="";
      loader.style.display="flex";
      callApiCity(city);
