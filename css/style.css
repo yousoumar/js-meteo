@@ -19,7 +19,7 @@ body{
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #100E1D;
+    background-color: rgb(30, 33, 58);
     z-index: 100;
     display: flex;
     justify-content: center;
@@ -42,7 +42,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(16, 14, 29);
+    background-color: rgb(30, 33, 58);
     z-index: 2;
     padding: 0 2rem 8rem 2rem;
     font-size: 1.1rem;
@@ -115,7 +115,7 @@ form{
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color:#1E213A;
+    background-color:rgb(30, 33, 58);
     padding: 4rem .9rem 6.5rem .9rem;
     display: none;    
     overflow: hidden; 
@@ -147,7 +147,7 @@ form button{
     width: 25%;
     background: #3C47E9;
     margin-right:0 ;
-    border: 1px red;
+    
 }
 form input::placeholder{
     color: #A09FB1;
@@ -186,19 +186,12 @@ form input::placeholder{
     color: #E7E7EB;
 }
 
-.main-temperature-description{   
-    font-weight: 600;
-    font-size: 1.5rem;
+.main-temperature-description, .today{   
+    font-size: 1.3rem;
     color: #A09FB1;
     margin: 2rem 0;
 }
 
-.today{
-    font-weight: 500;
-    font-size: 1.125rem;
-    color: #88869D;
-    margin: 2rem 0;
-}
 
 .today span{
     display: inline-block;
@@ -206,12 +199,11 @@ form input::placeholder{
 }
 
 .city{
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     color: #88869D;
 }
 .city span{
-    display: inline-block;
+    display: block;
     margin: .3rem;
 }
 

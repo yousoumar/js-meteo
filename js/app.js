@@ -31,32 +31,32 @@ toggle.addEventListener('click', (e)=>{
 });
        
 callApiCity('London');
-let lat, long;
 
+let lat, long;
 locationButton.addEventListener('click', ()=>{
      fulfilledCity = false;
      if (!(lat && long)){
           infoHandle(`<p>Veuillez autoriser la géolocalisation lorsque votre navigateur vous la demande.<p>`);
           setTimeout(()=>{
+               loader.style.display="flex";
                if (navigator.geolocation){
                     navigator.geolocation.getCurrentPosition((position)=>{
                          lat = position.coords.latitude;
                          long = position.coords.longitude;
-                         loader.style.display="flex";
                          callApiLatLong(lat, long);
-                      
-          
                     }, ()=>{
-                          infoHandle(`<p>Vous avez refusé la géolocalisation.
-                          Changer les paramètres de votre navigateur ou chercher directement votre ville par son nom.</p>`);
+                         loader.style.display="none";
+                         infoHandle(`<p>Vous avez refusé la géolocalisation.
+                         Changer les paramètres de votre navigateur ou chercher directement votre ville par son nom.</p>`);
                     });
                }else{
+                    loader.style.display="none";
                     infoHandle(`<p>Votre navigateur ne peut faire de la géolocalisation. Chercher votre ville par son nom.</p>`);
                }
           },3000)
           
      }else{
-     
+          loader.style.display="flex";
           callApiLatLong(lat, long);
           
      }
