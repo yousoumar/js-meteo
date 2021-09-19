@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap");
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  min-height: 100vh;
+  color: #e7e7eb;
+  font-family: "Quicksand", sans-serif;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(30, 33, 58);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+.loader i {
+  animation: spinner 2s infinite;
+  margin-bottom: 8rem;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(30, 33, 58);
+  z-index: 2;
+  padding: 0 2rem 8rem 2rem;
+  font-size: 1.1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.card {
+  background: rgb(30, 33, 58);
+}
+
+.main-info {
+  padding: 1.1rem 0.9rem 2.5rem 0.9rem;
+  text-align: center;
+  position: relative;
+}
+
+.search-location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  background: #6e707a;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 11rem;
+  height: 3rem;
+}
+
+.location {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(110, 112, 122, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  padding: 0.9rem 0.5rem;
+}
+
+button {
+  cursor: pointer;
+}
+#toggle-form {
+  width: 100%;
+}
+form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgb(30, 33, 58);
+  padding: 4rem 0.9rem 6.5rem 0.9rem;
+  display: none;
+  overflow: hidden;
+}
+
+.show-form form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-form #toggle-form {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  width: auto;
+  right: 0.9rem;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+form input,
+form button {
+  display: block;
+  width: 70%;
+  height: max-content;
+  background: rgba(110, 112, 122, 0.3);
+}
+form button {
+  width: 25%;
+  background: #3c47e9;
+  margin-right: 0;
+}
+form input::placeholder {
+  color: #a09fb1;
+  font-family: inherit;
+}
+.main-time-img {
+  margin: 1rem -0.9rem -5rem -0.9rem;
+  position: relative;
+  padding: 6rem 0;
+}
+
+.main-time-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  pointer-events: none;
+  background: top no-repeat url("../images/background.png");
+}
+
+.main-time-img .img {
+  width: 9.4rem;
+  margin: 0 auto;
+  transform: scale(1.5);
+}
+.main-temperature {
+  font-size: 2rem;
+}
+
+.main-temperature span {
+  font-weight: 500;
+  font-size: 6rem;
+  color: #e7e7eb;
+}
+
+.main-temperature-description,
+.today {
+  font-size: 1.3rem;
+  color: #a09fb1;
+  margin: 2rem 0;
+}
+
+.today span {
+  display: inline-block;
+  margin: 0 0.2rem;
+}
+
+.city {
+  font-size: 1.7rem;
+  color: #88869d;
+}
+.city span {
+  display: block;
+  margin: 0.3rem;
+}
+
+.weekend {
+  display: grid;
+  grid-template: repeat(3, 11rem) / repeat(2, 7.5rem);
+  gap: 1.6rem;
+  margin: 3.25rem 0;
+  justify-content: center;
+}
+
+.weekend > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.weekend span {
+  display: inline;
+  margin: 0 0.3rem;
+}
+.weekend span.min {
+  color: #a09fb1;
+}
+
+.hightlights {
+  margin: 0 1.3rem;
+}
+
+.hightlights h1 {
+  font-style: normal;
+  font-size: 1.5rem;
+  padding: 1.75rem 0;
+  margin-left: 1rem;
+}
+
+.hightlights .content > div {
+  width: calc(100% - 1.75rem);
+  min-height: 12rem;
+  margin: 1.6rem auto;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+  text-align: center;
+}
+
+.hightlights .content {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.hightlights .number {
+  margin: 1rem 0;
+}
+
+.hightlights .number span {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.hightlights .rang-container {
+  width: 80%;
+  height: 8px;
+  margin: 0 auto;
+  background: #e7e7eb;
+  border-radius: 80px;
+}
+
+.hightlights .percent {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.hightlights .percent span {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #a09fb1;
+  margin-bottom: 0.5rem;
+}
+
+.hightlights .rang {
+  height: 8px;
+  background: #ffec65;
+  border-radius: 80px;
+}
+
+.hightlights .unit {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  font-weight: bold;
+  color: #a09fb1;
+  margin: 0.3rem auto;
+}
+
+.hightlights .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.hightlights i {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(-150deg);
+  width: 29.49px;
+  height: 29.49px;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.7rem;
+}
+
+@media only screen and (min-width: 1150px) {
+  main {
+    display: grid;
+    grid-template: auto / 28.7rem 1fr auto;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .main-info {
+    min-height: 100%;
+  }
+
+  .main-temperature {
+    margin-top: 30%;
+  }
+
+  .weekend {
+    display: grid;
+    grid-template: 11rem / repeat(5, 1fr);
+    gap: 1.6rem;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .hightlights {
+    margin: 0;
+  }
+
+  .hightlights h1 {
+    margin-left: 0;
+  }
+
+  .hightlights .content {
+    display: grid;
+    grid-template: 1fr auto / repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .hightlights .content > div {
+    width: 100%;
+    margin: 0;
+  }
+}
