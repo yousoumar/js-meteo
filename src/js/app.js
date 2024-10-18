@@ -1,14 +1,12 @@
 "use strict";
+import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/style.css";
 import imgUrl from "./imgUrl";
-import "@fortawesome/fontawesome-free/css/all.css";
 const locationButton = document.querySelector(".location");
 const toggle = document.querySelector("#toggle-form");
 const city = document.querySelector(".city span:last-child");
 let fulfilledCity = false;
-const description = document.querySelector(
-  ".main-temperature-description div:first-child"
-);
+const description = document.querySelector(".main-temperature-description div:first-child");
 const temperature = document.querySelector(".main-temperature");
 const today = document.querySelector(".today");
 const timeImg = document.querySelector(".main-time-img img");
@@ -55,7 +53,8 @@ locationButton.addEventListener("click", () => {
             loader.style.display = "none";
             infoHandle(`<p>Vous avez refusé la géolocalisation.
                          Changer les paramètres de votre navigateur ou chercher directement votre ville par son nom.</p>`);
-          }
+          },
+          { enableHighAccuracy: true }
         );
       } else {
         loader.style.display = "none";
@@ -102,7 +101,7 @@ function infoHandle(message, apiError = false) {
 
 function callApiLatLong(lat, long) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lang=fr&units=metric&lat=${lat}&lon=${long}&appid=${APIKEY}`
+    `https://api.openweathermap.org/data/3.0/onecall?lang=fr&units=metric&lat=${lat}&lon=${long}&appid=${APIKEY}`
   )
     .then((response) => {
       if (response.ok) {
@@ -114,9 +113,7 @@ function callApiLatLong(lat, long) {
     .then((data) => {
       const options = { weekday: "long", month: "long", day: "numeric" };
       today.innerText = new Date().toLocaleDateString("fr-FR", options);
-      temperature.innerHTML = `<span>${Math.trunc(
-        data.current.temp
-      )}</span> °C`;
+      temperature.innerHTML = `<span>${Math.trunc(data.current.temp)}</span> °C`;
 
       if (!fulfilledCity) {
         city.innerText = data.timezone;
@@ -124,15 +121,7 @@ function callApiLatLong(lat, long) {
 
       description.innerText = data.current.weather[0].description;
       timeImg.src = imgUrl[data.current.weather[0].icon];
-      const days = [
-        "Lundi",
-        "Mardi",
-        "Mercredi",
-        "Jeudi",
-        "Vendredi",
-        "Samedi",
-        "Dimanche",
-      ];
+      const days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
       let date = new Date();
       let localDay = date.toLocaleDateString("fr-FR", { weekday: "long" });
       localDay = localDay.charAt(0).toUpperCase() + localDay.slice(1);
@@ -145,9 +134,7 @@ function callApiLatLong(lat, long) {
       for (let m = 0; m < weekend.length; m++) {
         weekend[m].innerHTML = `<div>${ordredDays[m]}</div>
                                        <div><img src = ${
-                                         imgUrl[
-                                           `${data.daily[m].weather[0].icon}`
-                                         ]
+                                         imgUrl[`${data.daily[m].weather[0].icon}`]
                                        } = ></img></div>
                                        <div><span class="max">${Math.trunc(
                                          data.daily[m].temp.max
@@ -203,9 +190,7 @@ function callApiLatLong(lat, long) {
 }
 
 function callApiCity(searchedCity) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${APIKEY}`
-  )
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${searchedCity}&limit=1&appid=${APIKEY}`)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -215,9 +200,9 @@ function callApiCity(searchedCity) {
     })
     .then((data) => {
       fulfilledCity = true;
-      let lat = data.coord.lat;
-      let long = data.coord.lon;
-      city.innerText = data.name;
+      let lat = data[0].lat;
+      let long = data[0].lon;
+      city.innerText = data[0].name;
       callApiLatLong(lat, long);
     })
     .catch((e) => {
@@ -232,9 +217,7 @@ function callApiCity(searchedCity) {
         );
       } else {
         // user has tape a city name unknown by the api
-        infoHandle(
-          `<p>Oups, je ne connais pas encore cette ville mais on y travaille. :)<p>`
-        );
+        infoHandle(`<p>Oups, je ne connais pas encore cette ville mais on y travaille. :)<p>`);
       }
     });
 }
